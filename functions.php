@@ -6,6 +6,7 @@ function indexPassages($count)
     global $db;
     $total = 0;
     $toIndex = 1;
+    put_mapping();;
 
     while ($toIndex) {
         $passages = $db->getPassages($count);
@@ -49,6 +50,19 @@ function indexPassages($count)
         $done = $db->setPassages($count);
         echo "$total passages indexed...\n";
     }
+}
+
+function put_mapping() {
+    $mapping = file_get_contents(MAPPING_FILE);
+    $ch = curl_init();
+    $options = array('Content-type: application/json', 'Content-Length: ' . strlen($mapping));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $options);
+    curl_setopt($ch, CURLOPT_URL, MAPPING_URL);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+    curl_setopt($ch, CURLOPT_VERBOSE, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $mapping);
+    curl_exec($ch);
+    echo "Index mapping sent.\n";
 }
 
 
