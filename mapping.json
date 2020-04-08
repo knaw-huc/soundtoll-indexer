@@ -40,10 +40,20 @@
         }
       },
       "plaats_regio_groot": {
-        "type": "keyword"
+        "type": "text",
+        "fields": {
+          "raw": {
+            "type": "keyword"
+          }
+        }
       },
       "plaats_regio_klein": {
-        "type": "keyword"
+        "type": "text",
+        "fields": {
+          "raw": {
+            "type": "keyword"
+          }
+        }
       },
       "van": {
         "type": "nested",
@@ -101,7 +111,12 @@
         "type": "nested",
         "properties": {
           "name": {
-            "type": "keyword"
+            "type": "text",
+            "fields": {
+              "raw": {
+                "type": "keyword"
+              }
+            }
           }
         }
       },
@@ -109,7 +124,12 @@
         "type": "nested",
         "properties": {
           "name": {
-            "type": "keyword"
+            "type": "text",
+            "fields": {
+              "raw": {
+                "type": "keyword"
+              }
+            }
           }
         }
       },
@@ -117,7 +137,12 @@
         "type": "nested",
         "properties": {
           "name": {
-            "type": "keyword"
+            "type": "text",
+            "fields": {
+              "raw": {
+                "type": "keyword"
+              }
+            }
           }
         }
       },
@@ -125,7 +150,12 @@
         "type": "nested",
         "properties": {
           "name": {
-            "type": "keyword"
+            "type": "text",
+            "fields": {
+              "raw": {
+                "type": "keyword"
+              }
+            }
           }
         }
       },
